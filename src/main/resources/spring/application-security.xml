@@ -32,10 +32,10 @@
     </http>
 	
     <authentication-manager erase-credentials="true" >
-        <authentication-provider ref="Autenticador"  />
+     <!--   <authentication-provider ref="Autenticador"  /> -->
          <authentication-provider>
         <user-service>
-            <user name="uti1" password="senha" authorities="ROLE_ADM, ROLE_USER" />
+            <user name="uti1" password="senha" authorities="ROLE_ADM, ROLE_USER, ROLE_FULL" />
             <user name="uti2" password="senha" authorities="ROLE_USER"  />
             <user name="uti3" password="senha" authorities="ROLE_USER" />
         </user-service>
