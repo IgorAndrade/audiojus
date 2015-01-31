@@ -21,17 +21,29 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
 			<name>org.eclipse.m2e.core.maven2Builder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
+=======
 			<name>org.eclipse.wst.validation.validationbuilder</name>
+>>>>>>> d798349db861e6671448375baaf9587ab8c1baff
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
+			<name>org.eclipse.wst.validation.validationbuilder</name>
+=======
 			<name>org.hibernate.eclipse.console.hibernateBuilder</name>
+>>>>>>> d798349db861e6671448375baaf9587ab8c1baff
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+<<<<<<< HEAD
+			<name>org.hibernate.eclipse.console.hibernateBuilder</name>
+=======
+			<name>org.eclipse.m2e.core.maven2Builder</name>
+>>>>>>> d798349db861e6671448375baaf9587ab8c1baff
 			<arguments>
 			</arguments>
 		</buildCommand>
