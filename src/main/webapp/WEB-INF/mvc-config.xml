@@ -12,10 +12,12 @@
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 	<!-- Uncomment and your base-package here: <context:component-scan base-package="org.springframework.samples.web"/> -->
+
 <mvc:annotation-driven  />
 	<context:component-scan base-package="br.com.audiojus" />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
@@ -24,6 +26,4 @@
 	<mvc:resources location="/resources/js/" mapping="/js/**" />
 	<mvc:resources location="/resources/css/" mapping="/css/**" />
 	<mvc:resources location="/resources/images/" mapping="/img/**" />
-
-	
 </beans>
