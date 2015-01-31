@@ -1,11 +1,12 @@
 package br.com.audiojus.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Tribunal {
-	@Id
+	@Id @GeneratedValue
 	private Long id;
 	private String nome;
 

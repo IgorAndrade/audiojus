@@ -20,14 +20,14 @@ public class Sumula {
 	private Integer numero;
 	private String titulo;
 	private String texto;
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	private Tribunal tribunal;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	 @JoinTable(name = "Sumula_Assunto", joinColumns = @JoinColumn(name = "sumula_id"), inverseJoinColumns = @JoinColumn(name = "assunto_id"))
 	private List<Assunto> assuntos;
 	
-	private void sumu() {
+	public  Sumula() {
 	this.assuntos = new ArrayList<Assunto>();
 	}
 	

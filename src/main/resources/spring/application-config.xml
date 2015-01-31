@@ -34,7 +34,7 @@
 			</bean>
 		</property>
 		<!-- <property name="persistenceUnitName" value="persistenceUnitName" /> -->
-		<property name="packagesToScan" value="br.com.irsa.training.model" />
+		<property name="packagesToScan" value="br.com.audiojus.model" />
 	</bean>
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
@@ -53,6 +53,6 @@
 		<property name="password" value="" />
 	</bean>
 	
-<jpa:repositories base-package="br.com.audio.repository" />
+<jpa:repositories base-package="br.com.audiojus.repository" />
 
 </beans>
