@@ -2,55 +2,58 @@ package br.com.audiojus.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.audiojus.model.Assunto;
 import br.com.audiojus.model.Sumula;
 import br.com.audiojus.model.Tribunal;
+import br.com.audiojus.repository.SumulaRepository;
 
 @Service
 public class ManterSumulaImp implements ManterSumulaService {
-
+@Autowired
+	private SumulaRepository repository;
+	
 	@Override
-	public void apagar(Sumula t) {
-		// TODO Auto-generated method stub
-
+	public void apagar(Sumula sumula) {
+		repository.delete(sumula);
 	}
 
 	@Override
 	public void apagar(Long id) {
-		// TODO Auto-generated method stub
+		repository.delete(id);
 
 	}
 
 	@Override
 	public List<Sumula> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findAll();
 	}
 
 	@Override
 	public Sumula buscar(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findOne(id);
 	}
 
 	@Override
 	public void salvar(Sumula sumula) {
-		// TODO Auto-generated method stub
+		repository.save(sumula);
 
 	}
 
 	@Override
 	public List<Sumula> listar(Assunto assunto) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findByAssunto(assunto);
 	}
 
 	@Override
 	public List<Sumula> listar(Tribunal tribunal) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findByTribunal(tribunal);
+	}
+
+	public void setRepository(SumulaRepository repository) {
+		this.repository = repository;
 	}
 
 }
