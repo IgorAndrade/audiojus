@@ -14,6 +14,6 @@ public interface SumulaRepository extends JpaRepository<Sumula, Long> {
 
 	@Query("Select sumula from Sumula sumula join sumula.assuntos assunto where assunto = :assunto")
 	public List<Sumula> findByAssunto(@Param("assunto") Assunto assunto);
-	@Query("Select sumula from Sumula sumula join sumula.tribunal tribunal where tribunal = :tribunal")
-	public List<Sumula> findByTribunal(@Param("tribunal") Tribunal tribunal);
+	public List<Sumula> findByTribunal( Tribunal tribunal);
+	public List<Sumula> findByFree(boolean free);
 }

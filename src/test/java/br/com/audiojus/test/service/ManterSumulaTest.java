@@ -1,7 +1,7 @@
 package br.com.audiojus.test.service;
 
 import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
@@ -26,6 +26,7 @@ import br.com.audiojus.repository.AssuntoRepository;
 import br.com.audiojus.repository.SumulaRepository;
 import br.com.audiojus.repository.TribunalRepository;
 import br.com.audiojus.service.ManterSumulaService;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring/application-config.xml" })
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class })
@@ -66,15 +67,23 @@ private TribunalRepository tribunalRepository;
 		sumula.addAssunto(assunto);
 		sumula.setTribunal(tribunal);
 		sumula.setNumero(1245);
+		sumula.setFree(false);
 		
 		repository.save(sumula);
 		assertNotNull(sumula.getId());
 		
 		List<Sumula> list = repository.findByAssunto(assunto);
 		assertThat(list, not(empty()));
+		assertThat(list, hasItem(sumula));
 		
 		List<Sumula> listT = repository.findByTribunal(tribunal);
 		assertThat(listT, not(empty()));
+		
+		List<Sumula> listFree = repository.findByFree(true);
+		assertThat(listFree, empty());
+		
+		 listFree = repository.findByFree(false);
+		assertThat(listFree, not(empty()));
 	}
 
 }
