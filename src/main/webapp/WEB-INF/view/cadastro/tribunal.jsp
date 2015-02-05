@@ -12,7 +12,7 @@
 </div>
 <div class="row">
 	<div class="col-md-8">
-		<f:form modelAttribute="tribunal" action="../../tribunal/salvar" method="POST">
+		<f:form modelAttribute="tribunal" action="${pageContext.request.contextPath}/tribunal/salvar" method="POST">
 		<f:hidden path="id"/>
 			<div class="form-group">
 				<label for="nome"><s:message code="form.tribunal.tribunal" />

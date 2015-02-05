@@ -23,25 +23,27 @@ public class TribunalController {
 	@Autowired
 	private TribunalService service;
 
-	@RequestMapping(value = "/salvar", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	@RequestMapping(value = "/novo", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
 	public ModelAndView tribunal(){
-		ModelAndView mv = new ModelAndView(LISTA);
-		mv.addObject("tribunais", service.listar());
+		ModelAndView mv = new ModelAndView(TRIBUNAL);
+		mv.addObject("tribunal", new Tribunal());
 		return mv;
+	}
+	
+	@RequestMapping(value = "/salvarJson", method = RequestMethod.POST, produces = "application/json;charset=UTF-8", consumes = {
+			"application/json;charset=UTF-8",
+			"application/x-www-form-urlencoded;charset=UTF-8" })
+	public ResponseEntity<Long> salvarJson(@RequestBody Tribunal t) {
+		service.salvar(t);
+		return new ResponseEntity<Long>(t.getId(), HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST, produces = "application/json;charset=UTF-8", consumes = {
 			"application/json;charset=UTF-8",
-			"application/x-www-form-urlencoded;charset=UTF-8" })
-	public ResponseEntity<Long> salvar(@RequestBody Tribunal t) {
+	"application/x-www-form-urlencoded;charset=UTF-8" })
+	public ResponseEntity<Long> salvar(Tribunal t) {
 		service.salvar(t);
 		return new ResponseEntity<Long>(t.getId(), HttpStatus.CREATED);
-	}
-	@RequestMapping(value = "/salvarJson", method = RequestMethod.POST, produces = "application/json;charset=UTF-8", consumes = {
-			"application/json;charset=UTF-8",
-	"application/x-www-form-urlencoded;charset=UTF-8" })
-	public ResponseEntity<String> salvar(@RequestBody String t) {
-		return new ResponseEntity<String>("", HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
@@ -52,7 +54,7 @@ public class TribunalController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/apagar", method = RequestMethod.POST, produces = "application/json;charset=UTF-8", consumes = {
+	@RequestMapping(value = "/apagar", method = {RequestMethod.POST,RequestMethod.DELETE}, produces = "application/json;charset=UTF-8", consumes = {
 			"application/json;charset=UTF-8",
 			"application/x-www-form-urlencoded;charset=UTF-8" })
 	public ResponseEntity<Object> apagar(@RequestBody Tribunal t) {
@@ -64,7 +66,7 @@ public class TribunalController {
 		}
 	}
 
-	@RequestMapping(value = "/apagar/{id}", method = RequestMethod.POST, produces = "application/json;charset=UTF-8", consumes = {
+	@RequestMapping(value = "/apagar/{id}", method = {RequestMethod.POST,RequestMethod.DELETE}, produces = "application/json;charset=UTF-8", consumes = {
 			"application/json;charset=UTF-8",
 			"application/x-www-form-urlencoded;charset=UTF-8" })
 	public void apagar(@PathVariable("id") Long id) {

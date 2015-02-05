@@ -23,10 +23,6 @@ public class DSChooser {
 	@Autowired
 	Environment env;
 
-	// @Autowired
-	// private ServletContext context;
-	// private InetAddress address;
-
 	@Bean(name = "dataSourceEscolhido")
 	public DataSource getDs() {
 		String[] activeProfiles = env.getActiveProfiles();
