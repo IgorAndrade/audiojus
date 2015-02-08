@@ -1,5 +1,6 @@
 package br.com.audiojus.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,6 +9,7 @@ import javax.persistence.Id;
 public class Assunto {
 	@Id @GeneratedValue
 	private Long id;
+	@Column(nullable=false,unique=true)
 	private String assunto;
 	public Long getId() {
 		return id;
