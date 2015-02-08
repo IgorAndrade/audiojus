@@ -59,6 +59,7 @@
 				<jsp:include page="${body}" />
 			</div>
 			<!-- /.container-fluid -->
+			<br/>
 			<jsp:include page="footer.jsp" />
 		</div>
 		<!-- /#page-wrapper -->
@@ -72,6 +73,7 @@
 <!-- 	Funções  -->
 	<script src="<s:url value="/js/scripts.js"/>"></script>
 	
+	<script src="<s:url value="/js/form.js"/>"></script>
 	<script src="<s:url value="/js/form2js.js"/>"></script>
 	<script src="<s:url value="/js/jquery.toObject.js"/>"></script>
 <script type="text/javascript" >
