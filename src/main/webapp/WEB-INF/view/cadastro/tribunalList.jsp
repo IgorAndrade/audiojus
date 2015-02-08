@@ -7,34 +7,43 @@
 <!-- Page Heading -->
 <div class="row">
 	<div class="col-xs-12">
-		<h1 class="page-header"><s:message code="form.login.title" />  </h1>
+		<h1 class="page-header">
+			<s:message code="form.tribunal.tribunal" />
+		</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-6">
+		<a class="btn btn-primary"
+			href="${pageContext.request.contextPath}/tribunal/novo"><s:message
+				code="form.btn.novo" /></a>
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-8">
-		<f:form action="logar" method="POST">
-			<div class="form-group">
-				<label for="InputEmail"><s:message code="form.login.login" />
-				</label> <input type="text" class="form-control" name="login"
-					id="InputEmail"
-					placeholder="<s:message code="form.login.login.title" />">
-			</div>
-			<div class="form-group">
-				<a href="#" class="pull-right"><s:message
-						code="form.login.btn" /></a>
-				<label for="InputPassword"><s:message
-						code="form.login.senha" /></label>
-				 <input type="password"
-					class="form-control" name="senha" id="InputPassword">
-			</div>
-			<div class="row">
-				<div class="col-xs-6">
-					<button type="submit" class="btn btn-primary"><s:message code="form.login.btn.logar"/></button>
-				</div>
-				<div class="col-xs-6">
-					<a href='<s:url value="/user"/>' class="btn btn-default pull-right"><s:message code="form.login.btn.cad"/></a>
-				</div>
-			</div>
-		</f:form>
+	<div class="col-lg-6">
+		<h2>Lista de Tribunais</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover table-striped">
+				<thead>
+					<tr>
+						<th>Tribunal</th>
+						<th>Editar</th>
+						<th>Excluir</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${tribunais}" var="tribinal">
+						<tr>
+							<td><c:out  value="${tribinal.nome}" /> </td>
+							<td><a
+								href="${pageContext.request.contextPath}/tribunal/editar/${tribinal.id}">Editar</a></td>
+							<td><a
+								href="${pageContext.request.contextPath}/tribunal/apagar/${tribinal.id}">Apagar</a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 	</div>
-</div> 
+</div>
